@@ -1,0 +1,32 @@
+<h2>QUIZ MAKER</h2>
+
+<!-- parapmeters -->
+<app-parameters (questionsEmitter)="initQuestions($event)"></app-parameters>
+
+<!-- questions -->
+<ng-container *ngIf="questions.length > 0">
+  <div class="margin-left-20">
+    <ng-container *ngFor="let question of questions; let iQuestion = index">
+      <div class="margin-bottom-17">
+        <div class="margin-bottom-17">
+          <span>{{question.question}}</span>
+        </div>
+        <ng-container *ngFor="let answer of question.answers; let iAnswer = index">
+          <label class="button-commun"
+                 (click)="onAnswer(iQuestion, iAnswer)"
+                 [ngClass]="{'button-selected': question.user_answer === answer}"
+          >
+            {{answer}}</label>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<!-- Submit button -->
+<ng-container *ngIf="isSubmitActive">
+  <div class="center-content margin-top-50">
+    <label class="submit" (click)="onSubmit()">Submit</label>
+  </div>
+</ng-container>
+

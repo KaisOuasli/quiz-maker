@@ -1,0 +1,39 @@
+<h3>RESULTS</h3>
+
+<!-- Results -->
+<div class="margin-left-20">
+  <ng-container *ngFor="let question of questions; let iQuestion = index">
+    <div class="margin-bottom-17">
+      <div class="margin-bottom-17">
+        <span>{{question.question}}</span>
+      </div>
+      <ng-container *ngFor="let answer of question.answers; let iAnswer = index">
+        <label class="button-commun"
+               [ngClass]="{
+               'correct-answer': answer === question.correct_answer,
+               'incorrect-answer': answer === question.user_answer && question.incorrect_answers.includes(question.user_answer!)
+               }"
+        >
+          {{answer}}</label>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+
+<!-- Score -->
+<div class="center-content margin-top-50">
+  <label
+    class="score"
+    [ngClass]="{
+               'red-score': score <= 1 ,
+               'yellow-score': score > 1 && score <= 3,
+               'green-score': score > 3
+               }"
+  >
+    You scored {{score}} out of 5</label>
+</div>
+
+<!-- New quiz -->
+<div class="center-content margin-top-50">
+  <label class="new-quiz" (click)="onCreatenewQuiz()">Create a new quiz</label>
+</div>

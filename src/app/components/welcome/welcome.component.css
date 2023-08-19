@@ -1,0 +1,40 @@
+.button-commun {
+  margin-right: 10px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid #288c28;
+  color: #288c28;
+}
+.button-commun:hover {
+  background: #288c28;
+  color: white;
+}
+.button-selected {
+  background: #288c28;
+  color: white;
+}
+.margin-bottom-17 {
+  margin-bottom: 17px;
+}
+.margin-top-50 {
+  margin-top: 50px;
+}
+.submit {
+  padding: 10px 200px;
+  border-radius: 5px;
+  background: #7d8491;
+  color: white;
+}
+.submit:hover {
+  background: #6f747c;
+}
+.margin-left-20 {
+  margin-left: 20px;
+}
+h2, label, .center-content {
+  text-align: center;
+}
+label:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+<form [formGroup]="parametersFromGroup!" (ngSubmit)="onCreate()" class="margin-bottom-20">
+  <div class="center-content">
+    <!-- Category select -->
+    <select name="categories" id="categorySelect" formControlName="category" class="margin-right-10 select-category">
+      <option [ngValue]="null" selected="selected" hidden="hidden">Select a category</option>
+      <option *ngFor = "let category of categories$ | async" [ngValue]="category.id">{{category.name}}</option>
+    </select>
+
+    <!-- Difficulty select -->
+    <select name="difficulties" id="difficultySelect" formControlName="difficulty" class="margin-right-10 select-difficulty">
+      <option [ngValue]="null" selected="selected" hidden="hidden">Select difficulty</option>
+      <option *ngFor = "let difficulty of difficulties" [ngValue]="difficulty">{{difficulty}}</option>
+    </select>
+
+    <!-- Creation button -->
+    <button type="submit" id="createBtn" class="create-button" [disabled]="parametersFromGroup.invalid">Create</button>
+  </div>
+</form>

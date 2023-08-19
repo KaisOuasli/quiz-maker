@@ -1,0 +1,50 @@
+.margin-left-20 {
+  margin-left: 20px;
+}
+.margin-bottom-17 {
+  margin-bottom: 17px;
+}
+.margin-top-50 {
+  margin-top: 50px;
+}
+.button-commun {
+  margin-right: 10px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid #288c28;
+  color: #288c28;
+}
+h3, label, .center-content  {
+  text-align: center;
+}
+.correct-answer {
+  background: #288c28;
+  color: white;
+}
+.incorrect-answer {
+  background: #de0000;
+  color: white;
+}
+.green-score {
+  background: #288c28;
+}
+.yellow-score {
+  background: yellow;
+}
+.red-score {
+  background: red;
+}
+.score {
+  padding: 3px 130px;
+}
+.new-quiz {
+  padding: 10px 200px;
+  border-radius: 5px;
+  background: #7d8491;
+  color: white;
+}
+.new-quiz:hover {
+  background: #6f747c;
+  cursor: pointer;
+}
