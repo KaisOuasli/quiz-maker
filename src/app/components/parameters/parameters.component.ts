@@ -50,8 +50,9 @@ export class ParametersComponent implements OnDestroy {
     const difficulty = this.parametersFromGroup.get('difficulty')?.value!;
     this.subscription = this.quizService.getQuestions(categoryId, difficulty)
       .subscribe((resp: Questions): void => {
-        const randomizedQuestions: Array<Question> = this.getRandomizedAnswers(resp.results);
-        this.questionsEmitter.emit(randomizedQuestions);
+        let questions: Array<Question> = this.getRandomizedAnswers(resp.results);
+        questions = this.getFormattedQuestions(questions);
+        this.questionsEmitter.emit(questions);
       })
 
   }
@@ -69,6 +70,20 @@ export class ParametersComponent implements OnDestroy {
         question.answers = answers;
         return question;
       });
+  }
+
+  private getFormattedQuestions(questions: Array<Question>): Array<Question> {
+    questions.forEach((question: Question) => {
+      question.answers = question.answers.map((answer: string) => this.getFormattedText(answer));
+      question.question = this.getFormattedText(question.question);
+    });
+    return questions;
+  }
+
+  private getFormattedText(text: string): string {
+    const textarea: HTMLTextAreaElement  = document.createElement("textarea");
+    textarea.innerHTML = text;
+    return textarea.value;
   }
 
   ngOnDestroy(): void {
